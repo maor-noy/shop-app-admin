@@ -17,7 +17,6 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
-import { create } from 'domain';
 import { createClient } from '@/supabase/client';
 
 const NAV_LINKS = [
@@ -124,24 +123,13 @@ export const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align='end'>
-                  <DropdownMenuItem
-                    onClick={() => {
-                        setTheme('light');
-                    }}
-                  >
+                  <DropdownMenuItem onClick={() => setTheme('light')}>
                     Light
                   </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => {
-                        setTheme('dark');
-                    }}
-                  >
+                  <DropdownMenuItem onClick={() => setTheme('dark')}>
                     Dark
                   </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => {
-                        setTheme('system');}}
-                  >
+                  <DropdownMenuItem onClick={() => setTheme('system')}>
                     System
                   </DropdownMenuItem>
                 </DropdownMenuContent>

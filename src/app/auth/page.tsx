@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 const loginSchema = z.object({
@@ -44,6 +45,7 @@ export default function Auth() {
       await authenticate(email, password);
       router.push('/admin');
     } catch (error) {
+      toast.error('Invalid email or password');
     } finally {
       setIsAuthenticating(false);
     }

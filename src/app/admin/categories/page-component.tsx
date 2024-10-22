@@ -110,6 +110,7 @@ const CategoriesPageComponent: FC<Props> = ({ categories }) => {
             toast.success('Category updated successfully');
           }
         }
+        break;
       }
 
       default:

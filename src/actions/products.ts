@@ -5,13 +5,13 @@ import { createClient } from '@/supabase/server';
 import {
     ProductsWithCategoriesResponse,
     UpdateProductSchema,
-} from '@/app/admin/products/product.types'
+} from '@/app/admin/products/products.types'
 import { CreateProductSchemaServer } from '@/app/admin/products/schema';
 import { CreateCategorySchemaServer } from '@/app/admin/categories/create-category.schema';
 
 const supabase = createClient();
 
-export const getProductWithCategory = async ()
+export const getProductsWithCategory = async ()
 :Promise<ProductsWithCategoriesResponse> => {
     const { data, error } = await supabase
         .from('product')
