@@ -36,6 +36,19 @@ export const ProductTableRow = ({
     setIsProductModalOpen(true);
   };
 
+  const handleDeleteClick = () => {
+    setCurrentProduct({
+      title: product.title,
+      category: product.category.id.toString(),
+      price: product.price?.toString() ?? '',
+      maxQuantity: product.maxQuantity.toString(),
+      images: [],
+      slug: product.slug,
+      intent: 'update',
+    });
+    setIsDeleteModalOpen(true);
+  };
+
   return (
     <TableRow key={product.id}>
       <TableCell>{product.title}</TableCell>
@@ -66,6 +79,7 @@ export const ProductTableRow = ({
         ))}
       </TableCell>
       <TableCell>
+        {/* Edit Button */}
         <Button
           variant='ghost'
           size='icon'
@@ -83,25 +97,14 @@ export const ProductTableRow = ({
         >
           <Pencil className='h-4 w-4' />
         </Button>
+
+        {/* Delete Button */}
         <Button
           variant='ghost'
           size='icon'
-          onClick={() =>
-            setCurrentProduct({
-              title: product.title,
-              category: product.category.id.toString(),
-              price: product.price?.toString() ?? '',
-              maxQuantity: product.maxQuantity.toString(),
-              images: [],
-              slug: product.slug,
-              intent: 'update',
-            })
-          }
+          onClick={handleDeleteClick}  // Attach the delete click handler here
         >
-          <Trash2
-            className='h-4 w-4'
-            onClick={() => setIsDeleteModalOpen(true)}
-          />
+          <Trash2 className='h-4 w-4' />
         </Button>
       </TableCell>
     </TableRow>

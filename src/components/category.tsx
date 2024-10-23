@@ -88,8 +88,7 @@ export const CategoryTableRow = ({
                 <h2>Products</h2>
                 <ScrollArea className='h-[400px] rounded-md p-4'>
                   {category.products.map(product => (
-                    <Link key={product.id} href={`/products/${product.id}`}>
-                      <Card className='cursor-pointer'>
+                      <Card key={product.id} className='cursor-pointer'>
                         <div className='grid grid-cols-[100px,1fr] items-center gap-4'>
                           <Image
                             alt='Product image'
@@ -108,7 +107,6 @@ export const CategoryTableRow = ({
                           </div>
                         </div>
                       </Card>
-                    </Link>
                   ))}
                 </ScrollArea>
               </DialogContent>
