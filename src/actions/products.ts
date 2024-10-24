@@ -10,7 +10,8 @@ import {
 import { CreateProductSchemaServer } from '@/app/admin/products/schema';
 import { revalidatePath } from 'next/cache';
 
-export const getProductsWithCategories = async (): Promise<ProductsWithCategoriesResponse> => {
+export const getProductsWithCategories =
+  async (): Promise<ProductsWithCategoriesResponse> => {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('product')
@@ -93,5 +94,6 @@ export const deleteProduct = async (slug: string) => {
   if (error) {
     throw new Error(`Error deleting product: ${error.message}`);
   }
+
   revalidatePath('/admin/products');
 };
