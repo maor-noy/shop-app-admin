@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { updateOrderStatus } from '@/actions/orders';
 
-const statusOptions = ['Pending', 'Shiped', 'InTransit', 'Completed']
+const statusOptions = ['Pending', 'Shipped', 'InTransit', 'Completed']
 
 type Props = {
     ordersWithProducts: OrdersWithProducts;
